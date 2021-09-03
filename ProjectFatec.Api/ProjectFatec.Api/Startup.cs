@@ -1,23 +1,34 @@
+using Fatec.Domain.ValueTypes.AppSettings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using ProjectFatec.WebApi.Extensions;
+using ProjectFatec.WebApi.IoC;
+using ProjectFatec.WebApi.Jobs;
+using System.IO;
 
 namespace ProjectFatec.Api
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
-        {
-            Configuration = configuration;
-        }
+        private readonly IAppSettings _appSettings;
 
-        public IConfiguration Configuration { get; }
+        public Startup()
+        {
+            _appSettings = new ConfigurationBuilder()
+                .SetBasePath(Directory.GetCurrentDirectory())
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .AddEnvironmentVariables()
+                .Build()
+                .Get<AppSettings>();
+        }
 
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHostedService<MigrateDatabase>();
             services.AddControllersWithViews();
 
             services.AddSpaStaticFiles(configuration =>
@@ -25,6 +36,9 @@ namespace ProjectFatec.Api
                 configuration.RootPath = "ClientApp/dist";
             });
 
+            services.GetDependencies(_appSettings);
+            services.AddFluentValidation();
+            services.AddFilters();
             services.AddSwaggerGen();
         }
 
