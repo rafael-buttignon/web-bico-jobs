@@ -25,6 +25,7 @@ namespace ProjectFatec.WebApi.IoC
 
             AddServices(services);
             AddRepositories(services);
+            AddCommomHelperServices(services);
         }
 
         public static void AddServices(IServiceCollection services)
