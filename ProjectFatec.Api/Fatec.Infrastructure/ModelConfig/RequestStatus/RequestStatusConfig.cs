@@ -8,7 +8,14 @@ namespace Fatec.Infrastructure.ModelConfig.RequestStatus
     {
         public void Configure(EntityTypeBuilder<RequestStatusEntity> builder)
         {
-            throw new System.NotImplementedException();
+            builder.Property(x => x.Description)
+                .IsRequired()
+                .HasMaxLength(100);
+
+            builder.HasMany(x => x.Requests)
+                .WithOne(x => x.RequestStatus)
+                .HasForeignKey(x => x.RequestStatusId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
         }
     }
 }

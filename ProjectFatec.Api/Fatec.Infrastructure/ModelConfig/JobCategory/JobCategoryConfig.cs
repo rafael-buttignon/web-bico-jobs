@@ -8,10 +8,14 @@ namespace Fatec.Infrastructure.ModelConfig.JobCategory
     {
         public void Configure(EntityTypeBuilder<JobCategoryEntity> builder)
         {
-            builder.Property(x => x.Description).IsRequired();
+            builder.Property(x => x.Description)
+                .IsRequired()
+                .HasMaxLength(100);
 
             builder.HasMany(x => x.Jobs)
-                .WithOne(p => p.JobCategory);
+                .WithOne(x => x.JobCategory)
+                .HasForeignKey(x => x.JobCategoryId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
         }
     }
 }

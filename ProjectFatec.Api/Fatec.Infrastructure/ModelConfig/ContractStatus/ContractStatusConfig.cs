@@ -8,7 +8,14 @@ namespace Fatec.Infrastructure.ModelConfig.ContractStatus
     {
         public void Configure(EntityTypeBuilder<ContractStatusEntity> builder)
         {
-            throw new System.NotImplementedException();
+            builder.Property(x => x.Description)
+                .IsRequired()
+                .HasMaxLength(100);
+
+            builder.HasMany(x => x.Contracts)
+                .WithOne(x => x.ContractStatus)
+                .HasForeignKey(x => x.ContractStatusId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
         }
     }
 }

@@ -14,6 +14,7 @@ namespace Fatec.Domain.Entities.User
         public DateTime BirthDate { get; set; }
         public string CPF { get; set; }
         public AddressEntity Address { get; set; }
+        public virtual long AddressId { get; set; }
         public ICollection<RequestEntity> Requests { get; set; }
         public ICollection<ContractEntity> Contracts { get; set; }
     }

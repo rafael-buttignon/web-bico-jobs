@@ -9,14 +9,17 @@ namespace Fatec.Domain.Entities.Request
     public class Request : Entity
     {
         public UserEntity ContractingUser { get; set; }
-        public int AssignedTo { get; set; }
-        public DateTime ApprovalDate { get; set; }
-        public DateTime RejectionDate { get; set; }
+        public virtual long ContractingUserId { get; set; }
+        public DateTime? ApprovalDate { get; set; }
+        public DateTime? RejectionDate { get; set; }
+        public string Description { get; set; }
         public JobEntity Job { get; set; }
+        public virtual long JobId { get; set; }
         public TimeSpan StartTime { get; set; }
         public TimeSpan EndTime { get; set; }
         public RequestStatusEntity RequestStatus { get; set; }
-        public long ContractId { get; set; }
+        public virtual long RequestStatusId { get; set; }
         public ContractEntity Contract { get; set; }
+        public virtual long ContractId { get; set; }
     }
 }

@@ -13,5 +13,6 @@ namespace Fatec.Domain.Entities.Address
         public string Complement { get; set; }
         public string Reference { get; set; }
         public UserEntity User { get; set; }
+        public virtual long UserId { get; set; }
     }
 }
