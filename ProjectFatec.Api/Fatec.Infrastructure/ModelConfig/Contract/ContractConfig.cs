@@ -16,11 +16,9 @@ namespace Fatec.Infrastructure.ModelConfig.Contract
             builder.Property(x => x.Price);
 
             builder.Property(x => x.StartTime)
-                .HasColumnType("datetime")
                 .IsRequired();
 
             builder.Property(x => x.EndTime)
-                .HasColumnType("datetime")
                 .IsRequired();
 
             builder.Property(x => x.StartDate)

@@ -13,17 +13,13 @@ namespace Fatec.Infrastructure.ModelConfig.Job
                 .HasMaxLength(100);
 
             builder.Property(x => x.StartTime)
-                .HasColumnType("datetime")
                 .IsRequired();
 
-            builder.Property(x => x.BreakTime)
-                .HasColumnType("datetime");
+            builder.Property(x => x.BreakTime);
 
-            builder.Property(x => x.ReturnTime)
-                .HasColumnType("datetime");
+            builder.Property(x => x.ReturnTime);
 
             builder.Property(x => x.EndTime)
-                .HasColumnType("datetime")
                 .IsRequired();
 
             builder.Property(x => x.PriceTime)

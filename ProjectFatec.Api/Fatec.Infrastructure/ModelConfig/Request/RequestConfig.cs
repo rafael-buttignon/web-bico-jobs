@@ -23,11 +23,9 @@ namespace Fatec.Infrastructure.ModelConfig.Request
                 .HasMaxLength(100);
 
             builder.Property(x => x.StartTime)
-                .HasColumnType("datetime")
                 .IsRequired();
 
             builder.Property(x => x.EndTime)
-                .HasColumnType("datetime")
                 .IsRequired();
 
             builder.HasOne(x => x.ContractingUser)
