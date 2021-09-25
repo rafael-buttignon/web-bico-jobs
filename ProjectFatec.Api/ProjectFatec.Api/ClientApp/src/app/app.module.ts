@@ -1,34 +1,58 @@
-import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { RouterModule } from '@angular/router';
-
 import { AppComponent } from './app.component';
-import { NavMenuComponent } from './nav-menu/nav-menu.component';
-import { HomeComponent } from './home/home.component';
-import { CounterComponent } from './counter/counter.component';
-import { FetchDataComponent } from './fetch-data/fetch-data.component';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppRoutingModule } from './app-routing.module';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { BreakPointRegistry, FlexLayoutModule, FlexStyleBuilder, LayoutAlignStyleBuilder, LayoutStyleBuilder, PrintHook, StylesheetMap, StyleUtils } from '@angular/flex-layout';
+import { MatButtonModule, MatDialogModule, MatExpansionModule, MatIconModule, MatListModule, MatSidenavModule, MatTableModule, MatToolbarModule } from '@angular/material';
+import { ToastrModule } from 'ngx-toastr';
+import { NgxMaskModule } from 'ngx-mask';
+import { CommonModule } from '@angular/common';
+import { MaterialModule } from './modules/material-module/material.module';
+import { HeaderComponent } from './layout/header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    NavMenuComponent,
-    HomeComponent,
-    CounterComponent,
-    FetchDataComponent
+    HeaderComponent,
   ],
   imports: [
-    BrowserModule.withServerTransition({ appId: 'ng-cli-universal' }),
-    HttpClientModule,
+    BrowserModule,
+    MaterialModule,
+    CommonModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    MatTableModule,
     FormsModule,
-    RouterModule.forRoot([
-      { path: '', component: HomeComponent, pathMatch: 'full' },
-      { path: 'counter', component: CounterComponent },
-      { path: 'fetch-data', component: FetchDataComponent },
-    ])
+    HttpClientModule,
+    FlexLayoutModule,
+    MatDialogModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule,
+    MatExpansionModule,
+    ToastrModule.forRoot(),
+    NgxMaskModule.forRoot(),
+
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+    PrintHook,
+    StyleUtils,
+    StyleSheet,
+    StylesheetMap,
+    LayoutAlignStyleBuilder,
+    LayoutStyleBuilder,
+    FlexStyleBuilder,
+    BreakPointRegistry
+  ],
+  exports: [
+    AppComponent,
+  ],
+  bootstrap: [AppComponent],
+  entryComponents: []
 })
 export class AppModule { }
