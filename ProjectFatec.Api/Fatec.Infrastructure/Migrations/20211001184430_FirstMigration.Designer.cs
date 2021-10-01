@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Fatec.Infrastructure.Migrations
 {
     [DbContext(typeof(BicoContext))]
-    [Migration("20210917230953_initial")]
-    partial class initial
+    [Migration("20211001184430_FirstMigration")]
+    partial class FirstMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -428,9 +428,6 @@ namespace Fatec.Infrastructure.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("bigint")
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
-
-                    b.Property<long>("AddressId")
-                        .HasColumnType("bigint");
 
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("datetime");

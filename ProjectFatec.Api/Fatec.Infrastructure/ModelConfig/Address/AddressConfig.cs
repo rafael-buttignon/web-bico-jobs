@@ -35,7 +35,7 @@ namespace Fatec.Infrastructure.ModelConfig.Address
 
             builder.HasOne(x => x.User)
                 .WithOne(x => x.Address)
-                .HasForeignKey<UserEntity>(x => x.AddressId)
+                .HasForeignKey<AddressEntity>(x => x.UserId)
                 .OnDelete(DeleteBehavior.ClientSetNull);
         }
     }
