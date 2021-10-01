@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Fatec.Infrastructure.Migrations
 {
-    public partial class initial : Migration
+    public partial class FirstMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -63,7 +63,6 @@ namespace Fatec.Infrastructure.Migrations
                     Password = table.Column<string>(type: "nvarchar(12)", maxLength: 12, nullable: false),
                     BirthDate = table.Column<DateTime>(type: "datetime", nullable: false),
                     CPF = table.Column<string>(type: "nvarchar(11)", maxLength: 11, nullable: false),
-                    AddressId = table.Column<long>(type: "bigint", nullable: false),
                     CreatedOn = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true),
                     UpdatedOn = table.Column<DateTimeOffset>(type: "datetimeoffset", nullable: true)
                 },

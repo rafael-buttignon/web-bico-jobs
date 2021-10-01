@@ -6,7 +6,6 @@ namespace ProjectFatec.Api
 {
     public class Program
     {
-        static string envName;
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();

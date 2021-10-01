@@ -45,6 +45,5 @@ namespace Fatec.Infrastructure.Repositories
         }
 
         public virtual IQueryable<TEntity> NoTracking() => DbSet.AsNoTracking();
-
     }
 }

@@ -9,9 +9,6 @@ namespace Fatec.Infrastructure.ModelConfig.User
     {
         public void Configure(EntityTypeBuilder<UserEntity> builder)
         {
-            //builder.Property(x => x.CreatedOn).IsRequired();
-            //builder.Property(x => x.UpdatedOn).IsRequired();
-
             builder.Property(x => x.Email)
                 .IsRequired()
                 .HasMaxLength(20);
@@ -40,11 +37,6 @@ namespace Fatec.Infrastructure.ModelConfig.User
             builder.HasMany(x => x.Contracts)
                 .WithOne(x => x.ContractingUser)
                 .HasForeignKey(x => x.ContractingUserId)
-                .OnDelete(DeleteBehavior.ClientSetNull);
-
-            builder.HasOne(x => x.Address)
-                .WithOne(x => x.User)
-                .HasForeignKey<AddressEntity>(x => x.UserId)
                 .OnDelete(DeleteBehavior.ClientSetNull);
         }
     }
