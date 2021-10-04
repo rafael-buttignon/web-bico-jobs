@@ -9,6 +9,7 @@ namespace Fatec.Domain.Repositories.Interfaces
     public interface IRepository<TEntity> where TEntity : Entity
     {
         Task AddAsync(TEntity obj);
+        void Add(TEntity obj);
         Task<TEntity> FindById(long id);
         Task<IEnumerable<TEntity>> GetAllAsync();
         Task<IEnumerable<TEntity>> Find(Expression<Func<TEntity, bool>> predicate);

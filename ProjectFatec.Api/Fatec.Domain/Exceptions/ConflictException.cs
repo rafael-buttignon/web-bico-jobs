@@ -3,23 +3,23 @@ using System.Runtime.Serialization;
 
 namespace Fatec.Domain.Exceptions
 {
-    public class ConflictException : Exception
+    public class UserAlreadyExistsException : Exception
     {
-        public ConflictException()
+        public UserAlreadyExistsException()
         {
         }
 
-        public ConflictException(string message)
+        public UserAlreadyExistsException(string message)
             : base(message)
         {
         }
 
-        public ConflictException(string message, Exception inner)
+        public UserAlreadyExistsException(string message, Exception inner)
             : base(message, inner)
         {
         }
 
-        protected ConflictException(SerializationInfo info, StreamingContext context)
+        protected UserAlreadyExistsException(SerializationInfo info, StreamingContext context)
             : base(info, context)
         {
         }

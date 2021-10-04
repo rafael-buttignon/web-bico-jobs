@@ -6,5 +6,6 @@ namespace Fatec.Domain.Services.Interfaces.User
     public interface IUserService
     {
         public Task<UserEntity> GetUserById(long userId);
+        public Task<bool> CreateUser(UserEntity user);
     }
 }

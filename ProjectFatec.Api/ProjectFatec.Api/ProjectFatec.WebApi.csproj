@@ -71,8 +71,8 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Application\" />
     <Folder Include="Models\Response\" />
-    <Folder Include="Models\Request\" />
   </ItemGroup>
 
   <Target Name="DebugEnsureNodeEnv" BeforeTargets="Build" Condition=" '$(Configuration)' == 'Debug' And !Exists('$(SpaRoot)node_modules') ">
