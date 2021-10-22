@@ -24,6 +24,11 @@ namespace Fatec.Infrastructure.Repositories
             await DbSet.AddAsync(obj);
         }
 
+        public void Add(TEntity obj)
+        {
+            DbSet.Add(obj);
+        }
+
         public void AddRange(IEnumerable<TEntity> entities)
         {
             DbSet.AddRange(entities);

@@ -1,4 +1,7 @@
 ﻿using AutoMapper;
+using Fatec.Domain.Entities.Address;
+using Fatec.Domain.Entities.User;
+using ProjectFatec.WebApi.Models.Request;
 
 namespace ProjectFatec.WebApi.Mapper.Profiles
 {
@@ -6,7 +9,8 @@ namespace ProjectFatec.WebApi.Mapper.Profiles
     {
         public RequestToDomain()
         {
-
+            CreateMap<UserRequest, User>();
+            CreateMap<AddressRequest, Address>();
         }
     }
 }
