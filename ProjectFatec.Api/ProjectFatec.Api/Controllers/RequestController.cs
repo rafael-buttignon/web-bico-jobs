@@ -1,0 +1,35 @@
+﻿using AutoMapper;
+using Fatec.Domain.Entities.Request;
+using Fatec.Domain.Services.Interfaces.Request;
+using Microsoft.AspNetCore.Mvc;
+using ProjectFatec.WebApi.Models.Request;
+using System;
+using System.Net;
+using System.Threading.Tasks;
+
+namespace ProjectFatec.WebApi.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class RequestController : Controller
+    {
+        private readonly IRequestService _requestService;
+        private readonly IMapper _mapper;
+
+        public RequestController(IMapper mapper, IRequestService requestService)
+        {
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
+            _requestService = requestService ?? throw new ArgumentNullException(nameof(requestService));
+        }
+
+        [HttpPost]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        public async Task<IActionResult> CreateRequest(RequestRequest request)
+        {
+            var req = _mapper.Map<Request>(request);
+            await _requestService.CreateRequest(req);
+            return Ok();
+        }
+    }
+}

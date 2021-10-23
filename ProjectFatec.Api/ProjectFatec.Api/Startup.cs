@@ -56,6 +56,7 @@ namespace ProjectFatec.Api
             });
             app.UseSwaggerUI(c =>
             {
+                c.RoutePrefix = string.Empty;
                 c.SwaggerEndpoint("/MyTestService/swagger/v1/swagger.json", "TestService");
             });
 

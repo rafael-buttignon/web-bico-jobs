@@ -16,8 +16,8 @@ namespace Fatec.Domain.Entities.Contract
         public double? Price { get; set; }
         public JobEntity Job { get; set; }
         public virtual long JobId { get; set; }
-        public TimeSpan StartTime { get; set; }
-        public TimeSpan EndTime { get; set; }
+        public DateTime StartTime { get; set; }
+        public DateTime EndTime { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime? EndDate { get; set; }
         public int TotalDays { get; set; }
