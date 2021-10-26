@@ -4,7 +4,11 @@ using Fatec.Domain.Services;
 using Fatec.Domain.Services.Clock;
 using Fatec.Domain.Services.Interfaces;
 using Fatec.Domain.Services.Interfaces.Clock;
+using Fatec.Domain.Services.Interfaces.Job;
+using Fatec.Domain.Services.Interfaces.Request;
 using Fatec.Domain.Services.Interfaces.User;
+using Fatec.Domain.Services.Job;
+using Fatec.Domain.Services.Request;
 using Fatec.Domain.Services.User;
 using Fatec.Domain.ValueTypes.AppSettings;
 using Fatec.Infrastructure.Context;
@@ -36,12 +40,16 @@ namespace ProjectFatec.WebApi.IoC
         {
             services.AddScoped<IService, Service>();
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IJobService, JobService>();
+            services.AddScoped<IRequestService, RequestService>();
         }
 
         public static void AddRepositories(IServiceCollection services)
         {
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IUserRepository, UserRepository>();
+            services.AddScoped<IRequestRepository, RequestRepository>();
+            services.AddScoped<IJobRepository, JobRepository>();
         }
 
         public static void AddCommomHelperServices(IServiceCollection services)
