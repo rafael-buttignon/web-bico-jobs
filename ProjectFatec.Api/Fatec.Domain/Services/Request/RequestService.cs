@@ -1,11 +1,9 @@
-﻿using Fatec.Domain.Enums;
-using Fatec.Domain.Repositories.Interfaces;
+﻿using Fatec.Domain.Repositories.Interfaces;
 using Fatec.Domain.Repositories.Transaction;
 using Fatec.Domain.Services.Interfaces.Request;
 using System;
 using System.Threading.Tasks;
 using RequestEntity = Fatec.Domain.Entities.Request.Request;
-
 
 namespace Fatec.Domain.Services.Request
 {
@@ -13,6 +11,8 @@ namespace Fatec.Domain.Services.Request
     {
         private readonly IRequestRepository _requestRepository;
         private readonly IUnitOfWork _unitOfWork;
+
+        private const int NEW_STATUS = 1;
 
         public RequestService(IRequestRepository requestRepository, IUnitOfWork unitOfWork)
         {
@@ -22,7 +22,7 @@ namespace Fatec.Domain.Services.Request
 
         public async Task<bool> CreateRequest(RequestEntity request) 
         {
-            request.RequestStatusId = 1;
+            request.RequestStatusId = NEW_STATUS;
             _requestRepository.Add(request);
             return await _unitOfWork.SaveChangesAsync();
         }

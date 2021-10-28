@@ -10,6 +10,7 @@ namespace Fatec.Domain.Repositories.Interfaces
     {
         Task AddAsync(TEntity obj);
         void Add(TEntity obj);
+        void Update(TEntity obj);
         Task<TEntity> FindById(long id);
         Task<IEnumerable<TEntity>> GetAllAsync();
         Task<IEnumerable<TEntity>> Find(Expression<Func<TEntity, bool>> predicate);
