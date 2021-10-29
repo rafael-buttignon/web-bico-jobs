@@ -83,7 +83,7 @@ header {
 }
 
 ::ng-deep .mat-tab-label-active {
-    color: $p-08 !important;
+    color: #f60 !important;
   }
 
 .mat-button, .mat-icon-button, .mat-stroked-button, .mat-flat-button {
@@ -103,7 +103,7 @@ header {
 }
 
 :host ::ng-deep .mat-tab-group.mat-primary .mat-ink-bar, .mat-tab-nav-bar.mat-primary .mat-ink-bar {
-    background-color: $p-08 !important;
+    background-color: #f60 !important;
 }
 
 ::ng-deep .mat-ink-bar {
@@ -120,7 +120,7 @@ header {
 }
 
 :host ::ng-deep .mat-tab-label-active {
-    color: $p-08 !important;
+    color: #f60 !important;
 }
 
 .nav-tree {

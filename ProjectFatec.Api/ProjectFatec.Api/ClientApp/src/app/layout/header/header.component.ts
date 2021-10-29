@@ -21,21 +21,22 @@ export class HeaderComponent implements OnInit {
     {
       label: 'Bico - Serviços',
       children: [
-        { label: 'Sobre', children: [], isHighLighted: false, featureFlag: '', path: '/sobre', externalUrl: '', redirectRouter: false, queryParams: { view: 'about' } },
-        { label: 'Quem se beneficia?', children: [], isHighLighted: false, featureFlag: '', path: '/sobre', externalUrl: '', redirectRouter: false, queryParams: { view: 'benefits' } },
-        { label: 'Se Interessou?', children: [], isHighLighted: false, featureFlag: '', path: '/sobre', externalUrl: '', redirectRouter: false, queryParams: { view: 'interested' } },
-        { label: 'Dados participantes', children: [], isHighLighted: false, featureFlag: 'activateItemVersionTwo', path: '/sobre', externalUrl: '', redirectRouter: false, queryParams: { view: 'participants' } }
+        { label: 'Sobre', children: [], isHighLighted: false, featureFlag: '', path: '/sobre', externalUrl: '', redirectRouter: false},
+        { label: 'Indique aí!', children: [], isHighLighted: false, featureFlag: '', path: '/sobre', externalUrl: '', redirectRouter: false},
+        { label: 'Benefícios', children: [], isHighLighted: false, featureFlag: '', path: '/sobre', externalUrl: '', redirectRouter: false},
+        { label: 'Planos', children: [], isHighLighted: false, featureFlag: '', path: '/sobre', externalUrl: '', redirectRouter: false},
+        { label: 'Parceiros', children: [], isHighLighted: false, featureFlag: '', path: '/sobre', externalUrl: '', redirectRouter: false}
+
       ],
       isHighLighted: true,
       featureFlag: '',
       path: '/sobre',
       externalUrl: '',
       redirectRouter: true,
-      queryParams: {}
     },
-    { label: 'Quero aderir', children: [], isHighLighted: true, featureFlag: 'activateItemVersionTwo', path: '/aderir', externalUrl: '', redirectRouter: false, queryParams: {} },
-    { label: 'Sobre', children: [], isHighLighted: true, featureFlag: '', path: '/sobre', externalUrl: '', redirectRouter: false, queryParams: { view: 'pressroom' } },
-    { label: 'Login', children: [], isHighLighted: true, featureFlag: '', path: '/sobre', externalUrl: '', redirectRouter: false, queryParams: { view: 'thanks' } }
+    { label: 'Sobre', children: [], isHighLighted: true, featureFlag: '', path: '/sobre', externalUrl: '', redirectRouter: false},
+    { label: 'Profissões', children: [], isHighLighted: true, featureFlag: '', path: '/sobre', externalUrl: '', redirectRouter: false},
+    { label: 'Login', children: [], isHighLighted: true, featureFlag: '', path: '/sobre', externalUrl: '', redirectRouter: false}
   ]
 
   treeControl = new NestedTreeControl<HeaderNode>(node => node.children);
@@ -87,11 +88,11 @@ export class HeaderComponent implements OnInit {
   redirectToView(node: HeaderNode) {
     this.isMobileMenuOpened = false;
     if (node.externalUrl.length !== 0 && node.redirectRouter !== false) {
-      this.router.navigate([''], { queryParams: node.queryParams });
+      this.router.navigate(['']);
       window.open(`${node.externalUrl}`, '_blank')
       return;
     }
-    return this.router.navigate([node.path], { queryParams: node.queryParams });
+    return this.router.navigate([node.path]);
   }
 }
 
@@ -101,7 +102,6 @@ class HeaderNode {
   isHighLighted: boolean;
   featureFlag: string;
   path: string;
-  queryParams: Object;
   externalUrl: string;
   redirectRouter: boolean;
 }
