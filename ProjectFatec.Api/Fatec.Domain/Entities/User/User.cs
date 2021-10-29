@@ -16,5 +16,13 @@ namespace Fatec.Domain.Entities.User
         public AddressEntity Address { get; set; }
         public ICollection<RequestEntity> Requests { get; set; }
         public ICollection<ContractEntity> Contracts { get; set; }
+
+        public void Update(User user) 
+        {
+            this.Name = user.Name;
+            this.Email = user.Email;
+            this.BirthDate = user.BirthDate;
+            this.CPF = user.CPF;
+        }
     }
 }

@@ -31,11 +31,27 @@ namespace ProjectFatec.WebApi.Controllers
         public async Task<IActionResult> UpdateAddress([FromRoute] long id, AddressRequest request)
         {
             var address = _mapper.Map<Address>(request);
+
             var response = await _addressService.UpdateAddress(id, address);
+
             if (!response)
                 return BadRequest();
 
             return Ok();
+        }
+
+        [HttpGet]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [Route("{id}")]
+        public async Task<IActionResult> GetAddressById([FromRoute] long id)
+        {
+            var address = await _addressService.GetAddressById(id);
+
+            if (address == null)
+                return BadRequest();
+
+            return Ok(address);
         }
     }
 }
