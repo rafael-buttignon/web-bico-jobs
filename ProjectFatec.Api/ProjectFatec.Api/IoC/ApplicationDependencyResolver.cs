@@ -1,8 +1,10 @@
 ﻿using Fatec.Domain.Repositories.Interfaces;
 using Fatec.Domain.Repositories.Transaction;
 using Fatec.Domain.Services;
+using Fatec.Domain.Services.Address;
 using Fatec.Domain.Services.Clock;
 using Fatec.Domain.Services.Interfaces;
+using Fatec.Domain.Services.Interfaces.Address;
 using Fatec.Domain.Services.Interfaces.Clock;
 using Fatec.Domain.Services.Interfaces.Job;
 using Fatec.Domain.Services.Interfaces.Request;
@@ -42,6 +44,7 @@ namespace ProjectFatec.WebApi.IoC
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IJobService, JobService>();
             services.AddScoped<IRequestService, RequestService>();
+            services.AddScoped<IAddressService, AddressService>();
         }
 
         public static void AddRepositories(IServiceCollection services)
@@ -50,6 +53,7 @@ namespace ProjectFatec.WebApi.IoC
             services.AddScoped<IUserRepository, UserRepository>();
             services.AddScoped<IRequestRepository, RequestRepository>();
             services.AddScoped<IJobRepository, JobRepository>();
+            services.AddScoped<IAddressRepository, AddressRepository>();
         }
 
         public static void AddCommomHelperServices(IServiceCollection services)

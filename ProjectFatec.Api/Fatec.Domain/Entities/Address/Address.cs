@@ -14,5 +14,16 @@ namespace Fatec.Domain.Entities.Address
         public string Reference { get; set; }
         public UserEntity User { get; set; }
         public virtual long UserId { get; set; }
+
+        public void Update(Address address)
+        {
+            this.CEP = address.CEP;
+            this.Street = address.Street;
+            this.Number = address.Number;
+            this.Neighborhood = address.Neighborhood;
+            this.City = address.City;
+            this.State = address.State;
+            this.Reference = address.Reference;
+        }
     }
 }

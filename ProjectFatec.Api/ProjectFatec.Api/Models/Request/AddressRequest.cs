@@ -10,7 +10,6 @@
         public string State { get; set; }
         public string Complement { get; set; }
         public string Reference { get; set; }
-        //public UserRequest User { get; set; }
     }
 }
 

@@ -1,4 +1,4 @@
-﻿using Fatec.Domain.Entities.User;
+﻿using Fatec.Domain.Entities.Address;
 using Fatec.Domain.Repositories.Interfaces;
 using Fatec.Infrastructure.Context;
 using Microsoft.EntityFrameworkCore;
@@ -8,21 +8,16 @@ using System.Threading.Tasks;
 
 namespace Fatec.Infrastructure.Repositories
 {
-    public class UserRepository : Repository<User>, IUserRepository
+    public class AddressRepository : Repository<Address>, IAddressRepository
     {
         private readonly BicoContext _context;
 
-        public UserRepository(BicoContext context): base(context)
+        public AddressRepository(BicoContext context) : base(context)
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public async Task<User> GetUserByEmail(string email) 
-        {
-            return await DbSet.Where(x => x.Email == email).FirstOrDefaultAsync();
-        }
-
-        public async Task<User> GetUserById(long id)
+        public async Task<Address> GetAddressById(long id)
         {
             return await DbSet.Where(x => x.Id == id).FirstOrDefaultAsync();
         }

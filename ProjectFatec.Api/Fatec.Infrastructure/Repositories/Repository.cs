@@ -29,6 +29,11 @@ namespace Fatec.Infrastructure.Repositories
             DbSet.Add(obj);
         }
 
+        public void Update(TEntity obj)
+        {
+            DbSet.Update(obj);
+        }
+
         public void AddRange(IEnumerable<TEntity> entities)
         {
             DbSet.AddRange(entities);
