@@ -26,10 +26,10 @@ namespace ProjectFatec.WebApi.Controllers
         [HttpGet]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        [Route("{userId}")]
-        public async Task<IActionResult> GetUserById([FromRoute] long userId) 
+        [Route("{id}")]
+        public async Task<IActionResult> GetUserById([FromRoute] long id) 
         {
-            var user = await _userService.GetUserById(userId);
+            var user = await _userService.GetUserById(id);
 
             if (user == null) 
                 return BadRequest();
@@ -43,8 +43,29 @@ namespace ProjectFatec.WebApi.Controllers
         public async Task<IActionResult> CreateUser(UserRequest request)
         {
             var user = _mapper.Map<User>(request);
-            await _userService.CreateUser(user);
-            return Ok();       
+
+            var response = await _userService.CreateUser(user);
+
+            if (!response)
+                return BadRequest();
+
+            return Ok();
+        }
+
+        [HttpPut]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [Route("{id}")]
+        public async Task<IActionResult> UpdateUser([FromRoute] long id, UserUpdateRequest request)
+        {
+            var user = _mapper.Map<User>(request);
+
+            var response = await _userService.UpdateUser(id, user);
+
+            if (!response)
+                return BadRequest();
+
+            return Ok();
         }
     }
 }

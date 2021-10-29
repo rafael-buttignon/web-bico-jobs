@@ -21,6 +21,11 @@ namespace Fatec.Domain.Services.Address
             _unitOfWork = unitOfWork ?? throw new ArgumentNullException(nameof(unitOfWork));
         }
 
+        public async Task<AddressEntity> GetAddressById(long id)
+        {
+            return await _addressRepository.GetAddressById(id);
+        }
+
         public async Task<bool> UpdateAddress(long id, AddressEntity request)
         {
             var address = await _addressRepository.GetAddressById(id);

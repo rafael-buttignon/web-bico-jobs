@@ -6,5 +6,6 @@ namespace Fatec.Domain.Services.Interfaces.Address
     public interface IAddressService
     {
         public Task<bool> UpdateAddress(long id, AddressEntity request);
+        public Task<AddressEntity> GetAddressById(long id);
     }
 }

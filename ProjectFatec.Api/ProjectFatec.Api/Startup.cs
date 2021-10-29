@@ -1,6 +1,7 @@
 using Fatec.Domain.ValueTypes.AppSettings;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Routing;
 using Microsoft.AspNetCore.SpaServices.AngularCli;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -29,7 +30,12 @@ namespace ProjectFatec.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddHostedService<MigrateDatabase>();
+                
             services.AddControllersWithViews();
+            services.Configure<RouteOptions>(options =>
+            {
+                options.LowercaseUrls = true;
+            }); ;
 
             services.AddSpaStaticFiles(configuration =>
             {

@@ -28,7 +28,12 @@ namespace ProjectFatec.WebApi.Controllers
         public async Task<IActionResult> CreateJob([FromBody] JobRequest request)
         {
             var job = _mapper.Map<Job>(request);
-            await _jobService.CreateJob(job);
+
+            var response = await _jobService.CreateJob(job);
+
+            if(!response)
+                return BadRequest();
+                
             return Ok();
         }
     }

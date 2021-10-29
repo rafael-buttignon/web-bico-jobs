@@ -12,6 +12,7 @@ namespace ProjectFatec.WebApi.Mapper.Profiles
         public RequestToDomain()
         {
             CreateMap<UserRequest, User>();
+            CreateMap<UserUpdateRequest, User>();
             CreateMap<AddressRequest, Address>();
             CreateMap<RequestRequest, Request>();
             CreateMap<JobRequest, Job>();

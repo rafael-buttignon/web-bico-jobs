@@ -28,7 +28,12 @@ namespace ProjectFatec.WebApi.Controllers
         public async Task<IActionResult> CreateRequest(RequestRequest request)
         {
             var req = _mapper.Map<Request>(request);
-            await _requestService.CreateRequest(req);
+
+            var response = await _requestService.CreateRequest(req);
+
+            if(!response)
+                return BadRequest();
+                
             return Ok();
         }
     }

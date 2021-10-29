@@ -28,11 +28,27 @@ namespace Fatec.Domain.Services.User
         {
             var userVerified = await _userRepository.GetUserByEmail(user.Email);
 
-            if (userVerified != null) throw new UserAlreadyExistsException();
+            if (userVerified != null) 
+                throw new UserException("USER ALREADY EXISTS!");
 
             _userRepository.Add(user);
 
             return await _unitOfWork.SaveChangesAsync();
         }
+
+        public async Task<bool> UpdateUser(long id, UserEntity request)
+        {
+            var user = await _userRepository.GetUserById(id);
+
+            if(user == null)
+                throw new UserException("USER DOESN'T EXIST!");
+
+            user.Update(request);
+
+            _userRepository.Update(user);
+
+            return await _unitOfWork.SaveChangesAsync();
+        }
+
     }
 }
