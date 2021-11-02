@@ -17,9 +17,9 @@ namespace Fatec.Infrastructure.Repositories
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
 
-        public async Task<User> GetUserByEmail(string email) 
+        public async Task<User> GetUserByCPF(string cpf) 
         {
-            return await DbSet.Where(x => x.Email == email).FirstOrDefaultAsync();
+            return await DbSet.Where(x => x.CPF == cpf).FirstOrDefaultAsync();
         }
 
         public async Task<User> GetUserById(long id)

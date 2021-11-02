@@ -1,4 +1,6 @@
 ﻿using AutoMapper;
+using Fatec.Domain.Entities.Job;
+using ProjectFatec.WebApi.Models.Response.ViewModels;
 
 namespace ProjectFatec.WebApi.Mapper.Profiles
 {
@@ -6,7 +8,7 @@ namespace ProjectFatec.WebApi.Mapper.Profiles
     {
         public DomainToResponse()
         {
-
+            CreateMap<Job, JobViewModel>();
         }
     }
 }

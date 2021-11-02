@@ -2,6 +2,7 @@
 using Fatec.Domain.Repositories.Transaction;
 using Fatec.Domain.Services.Interfaces.Job;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using JobEntity = Fatec.Domain.Entities.Job.Job;
 
@@ -22,6 +23,11 @@ namespace Fatec.Domain.Services.Job
         {
             _jobRepository.Add(request);
             return await _unitOfWork.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<JobEntity>> GetJobs()
+        {
+            return await _jobRepository.GetAllAsync();
         }
     }
 }
