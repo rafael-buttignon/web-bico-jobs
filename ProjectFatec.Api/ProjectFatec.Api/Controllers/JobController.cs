@@ -3,7 +3,9 @@ using Fatec.Domain.Entities.Job;
 using Fatec.Domain.Services.Interfaces.Job;
 using Microsoft.AspNetCore.Mvc;
 using ProjectFatec.WebApi.Models.Request;
+using ProjectFatec.WebApi.Models.Response.ViewModels;
 using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 
@@ -20,6 +22,19 @@ namespace ProjectFatec.WebApi.Controllers
         {
             _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
             _jobService = jobService ?? throw new ArgumentNullException(nameof(jobService));
+        }
+
+        [HttpGet]
+        [ProducesResponseType(typeof(JobViewModel), (int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        public async Task<IActionResult> GetJobs()
+        {
+            var jobs = _mapper.Map<IEnumerable<JobViewModel>>(await _jobService.GetJobs());
+
+            if (jobs == null)
+                return BadRequest();
+
+            return Ok(jobs);
         }
 
         [HttpPost]

@@ -8,7 +8,7 @@ namespace ProjectFatec.WebApi.Models.Request
         public virtual long JobId { get; set; }
         public virtual long ProviderId { get; set; }
         public string Description { get; set; }
-        public DateTime StartTime { get; set; }
-        public DateTime EndTime { get; set; }
+        public TimeSpan StartTime { get; set; }
+        public TimeSpan EndTime { get; set; }
     }
 }

@@ -4,6 +4,5 @@ namespace Fatec.Domain.Repositories.Interfaces
 {
     public interface IJobRepository : IRepository<Job>
     {
-
     }
 }

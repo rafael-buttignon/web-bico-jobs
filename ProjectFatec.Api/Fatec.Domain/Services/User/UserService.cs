@@ -26,7 +26,7 @@ namespace Fatec.Domain.Services.User
 
         public async Task<bool> CreateUser(UserEntity user) 
         {
-            var userVerified = await _userRepository.GetUserByEmail(user.Email);
+            var userVerified = await _userRepository.GetUserByCPF(user.CPF);
 
             if (userVerified != null) 
                 throw new UserException("USER ALREADY EXISTS!");

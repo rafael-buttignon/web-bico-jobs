@@ -30,7 +30,7 @@ namespace ProjectFatec.Api
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddHostedService<MigrateDatabase>();
-                
+
             services.AddControllersWithViews();
             services.Configure<RouteOptions>(options =>
             {
