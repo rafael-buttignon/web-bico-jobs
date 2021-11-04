@@ -22,9 +22,19 @@ namespace Fatec.Infrastructure.Repositories
             return await DbSet.Where(x => x.CPF == cpf).FirstOrDefaultAsync();
         }
 
+        public override async Task<User> FindById(long id)
+        {
+            return await DbSet
+                .Where(x => x.Id == id)
+                .Include(x => x.Address)
+                .FirstOrDefaultAsync();
+        }
+
         public async Task<User> GetUserById(long id)
         {
-            return await DbSet.Where(x => x.Id == id).FirstOrDefaultAsync();
+            return await DbSet
+                .Where(x => x.Id == id)
+                .FirstOrDefaultAsync();
         }
     }
 }

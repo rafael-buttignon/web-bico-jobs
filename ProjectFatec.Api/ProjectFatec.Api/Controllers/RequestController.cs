@@ -58,7 +58,7 @@ namespace ProjectFatec.WebApi.Controllers
         [Route("{id}")]
         public async Task<IActionResult> GetById(long id)
         {
-            var request = _mapper.Map<RequestViewModel>(await _requestService.GetById(id));
+            var request = _mapper.Map<RequestDetailsViewModel>(await _requestService.GetById(id));
 
             if (request == null)
                 return BadRequest();
