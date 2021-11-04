@@ -4,18 +4,16 @@ using System.Text.Json.Serialization;
 
 namespace ProjectFatec.WebApi.Models.Response.ViewModels
 {
-    public class JobViewModel
+    public class RequestDetailsViewModel : RequestViewModel
     {
-        public virtual long JobCategoryId { get; set; }
-        public string Description { get; set; }
-        public UserViewModel Provider { get; set; }
-
         [JsonConverterAttribute(typeof(TimeSpanConverter))]
         public TimeSpan StartTime { get; set; }
 
         [JsonConverterAttribute(typeof(TimeSpanConverter))]
-        public TimeSpan EndTime {  get; set; }
+        public TimeSpan EndTime { get; set; }
 
-        public double PriceTime { get; set; }
+        public DateTime ApprovalDate { get; set; }
+        public DateTime RejectionDate { get; set; }
+        public double PriceTime {  get; set; }
     }
 }

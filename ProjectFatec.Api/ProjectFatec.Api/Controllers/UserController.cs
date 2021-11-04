@@ -3,6 +3,7 @@ using Fatec.Domain.Entities.User;
 using Fatec.Domain.Services.Interfaces.User;
 using Microsoft.AspNetCore.Mvc;
 using ProjectFatec.WebApi.Models.Request;
+using ProjectFatec.WebApi.Models.Response.ViewModels;
 using System;
 using System.Net;
 using System.Threading.Tasks;
@@ -23,12 +24,12 @@ namespace ProjectFatec.WebApi.Controllers
         }
 
         [HttpGet]
-        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(UserViewModel), (int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         [Route("{id}")]
         public async Task<IActionResult> GetUserById([FromRoute] long id) 
         {
-            var user = await _userService.GetUserById(id);
+            var user = _mapper.Map<UserViewModel>(await _userService.GetUserById(id));
 
             if (user == null) 
                 return BadRequest();

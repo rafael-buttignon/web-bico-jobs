@@ -1,10 +1,9 @@
 ﻿using AutoMapper;
 using Fatec.Domain.Entities.Address;
-using Fatec.Domain.Entities.User;
-using Fatec.Domain.Exceptions;
 using Fatec.Domain.Services.Interfaces.Address;
 using Microsoft.AspNetCore.Mvc;
 using ProjectFatec.WebApi.Models.Request;
+using ProjectFatec.WebApi.Models.Response.ViewModels;
 using System;
 using System.Net;
 using System.Threading.Tasks;
@@ -41,12 +40,12 @@ namespace ProjectFatec.WebApi.Controllers
         }
 
         [HttpGet]
-        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType(typeof(AddressViewModel), (int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
         [Route("{id}")]
         public async Task<IActionResult> GetAddressById([FromRoute] long id)
         {
-            var address = await _addressService.GetAddressById(id);
+            var address = _mapper.Map<AddressViewModel>(await _addressService.GetAddressById(id));
 
             if (address == null)
                 return BadRequest();

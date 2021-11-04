@@ -39,7 +39,7 @@ namespace Fatec.Infrastructure.Repositories
             DbSet.AddRange(entities);
         }
 
-        public async Task<TEntity> FindById(long id)
+        public virtual async Task<TEntity> FindById(long id)
         {
             return await DbSet.FindAsync(id);
         }
@@ -49,7 +49,7 @@ namespace Fatec.Infrastructure.Repositories
             return await DbSet.Where(predicate).ToListAsync();
         }
 
-        public async Task<IEnumerable<TEntity>> GetAllAsync()
+        public virtual async Task<IEnumerable<TEntity>> GetAllAsync()
         {
             return await DbSet.ToListAsync();
         }
