@@ -1,6 +1,5 @@
 ﻿using AutoMapper;
 using Fatec.Domain.Entities.User;
-using Fatec.Domain.Exceptions;
 using Fatec.Domain.Services.Interfaces.User;
 using Microsoft.AspNetCore.Mvc;
 using ProjectFatec.WebApi.Models.Request;

@@ -2,6 +2,7 @@
 using Fatec.Domain.Repositories.Transaction;
 using Fatec.Domain.Services.Interfaces.Request;
 using System;
+using System.Collections.Generic;
 using System.Threading.Tasks;
 using RequestEntity = Fatec.Domain.Entities.Request.Request;
 
@@ -25,6 +26,16 @@ namespace Fatec.Domain.Services.Request
             request.RequestStatusId = NEW_STATUS;
             _requestRepository.Add(request);
             return await _unitOfWork.SaveChangesAsync();
+        }
+
+        public async Task<IEnumerable<RequestEntity>> GetRequests()
+        {
+            return await _requestRepository.GetAllAsync();
+        }
+
+        public async Task<RequestEntity> GetById(long id)
+        {
+            return await _requestRepository.FindById(id);
         }
     }
 }

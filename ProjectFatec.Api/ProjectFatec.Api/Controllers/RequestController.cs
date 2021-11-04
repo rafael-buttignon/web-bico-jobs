@@ -3,7 +3,9 @@ using Fatec.Domain.Entities.Request;
 using Fatec.Domain.Services.Interfaces.Request;
 using Microsoft.AspNetCore.Mvc;
 using ProjectFatec.WebApi.Models.Request;
+using ProjectFatec.WebApi.Models.Response.ViewModels;
 using System;
+using System.Collections.Generic;
 using System.Net;
 using System.Threading.Tasks;
 
@@ -35,6 +37,33 @@ namespace ProjectFatec.WebApi.Controllers
                 return BadRequest();
                 
             return Ok();
+        }
+
+        [HttpGet]
+        [ProducesResponseType(typeof(RequestViewModel), (int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        public async Task<IActionResult> GetRequests()
+        {
+            var requests = _mapper.Map<IEnumerable<RequestViewModel>>(await _requestService.GetRequests());
+
+            if (requests == null)
+                return BadRequest();
+
+            return Ok(requests);
+        }
+
+        [HttpGet]
+        [ProducesResponseType(typeof(RequestViewModel), (int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [Route("{id}")]
+        public async Task<IActionResult> GetById(long id)
+        {
+            var request = _mapper.Map<RequestViewModel>(await _requestService.GetById(id));
+
+            if (request == null)
+                return BadRequest();
+
+            return Ok(request);
         }
     }
 }

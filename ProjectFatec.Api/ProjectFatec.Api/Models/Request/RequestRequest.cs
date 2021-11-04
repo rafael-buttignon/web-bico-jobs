@@ -1,4 +1,6 @@
-﻿using System;
+﻿using ProjectFatec.WebApi.Extensions;
+using System;
+using System.Text.Json.Serialization;
 
 namespace ProjectFatec.WebApi.Models.Request
 {
@@ -8,7 +10,11 @@ namespace ProjectFatec.WebApi.Models.Request
         public virtual long JobId { get; set; }
         public virtual long ProviderId { get; set; }
         public string Description { get; set; }
+
+        [JsonConverterAttribute(typeof(TimeSpanConverter))]
         public TimeSpan StartTime { get; set; }
+
+        [JsonConverterAttribute(typeof(TimeSpanConverter))]
         public TimeSpan EndTime { get; set; }
     }
 }
