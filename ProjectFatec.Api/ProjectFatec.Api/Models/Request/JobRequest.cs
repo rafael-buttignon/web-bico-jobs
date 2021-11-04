@@ -1,6 +1,5 @@
 ﻿using ProjectFatec.WebApi.Extensions;
 using System;
-//using System.ComponentModel;
 using System.Text.Json.Serialization;
 
 namespace ProjectFatec.WebApi.Models.Request

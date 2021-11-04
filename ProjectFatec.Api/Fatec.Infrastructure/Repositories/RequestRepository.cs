@@ -13,6 +13,5 @@ namespace Fatec.Infrastructure.Repositories
         {
             _context = context ?? throw new ArgumentNullException(nameof(context));
         }
-        
     }
 }
