@@ -25,6 +25,9 @@ import { CdkTableModule } from '@angular/cdk/table';
 import { CdkTreeModule } from '@angular/cdk/tree';
 import { HowToWorkComponent } from './layout/how-to-work/how-to-work.component';
 import { LandingpageComponent } from './layout/landingpage/landingpage.component';
+import { CardFancyComponent } from './layout/card-fancy/card-fancy.component';
+import { CardFancyCategorysComponent } from './layout/card-fancy-categorys/card-fancy-categorys.component';
+import { BlogComponent } from './layout/blog/blog.component';
 
 @NgModule({
   declarations: [
@@ -33,6 +36,9 @@ import { LandingpageComponent } from './layout/landingpage/landingpage.component
     AboutComponent,
     HowToWorkComponent,
     LandingpageComponent,
+    CardFancyComponent,
+    CardFancyCategorysComponent,
+    BlogComponent,
   ],
   imports: [
     BrowserModule,
