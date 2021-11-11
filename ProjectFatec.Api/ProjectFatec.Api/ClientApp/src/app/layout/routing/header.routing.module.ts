@@ -8,10 +8,10 @@ const routes: Routes = [
     {
         path: '',
         pathMatch: 'full',
-        redirectTo: 'sobre'
+        redirectTo: 'inicio'
     },
     {
-        path: 'sobre',
+        path: 'inicio',
         component: LandingpageComponent,
     },
     {

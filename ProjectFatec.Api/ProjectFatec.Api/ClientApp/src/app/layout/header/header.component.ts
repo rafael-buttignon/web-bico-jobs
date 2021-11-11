@@ -21,22 +21,22 @@ export class HeaderComponent implements OnInit {
     {
       label: 'Bico - Serviços',
       children: [
-        { label: 'Sobre', children: [], isHighLighted: false, featureFlag: '', path: '/sobre', externalUrl: '', redirectRouter: false},
-        { label: 'Indique aí!', children: [], isHighLighted: false, featureFlag: '', path: '/sobre', externalUrl: '', redirectRouter: false},
-        { label: 'Benefícios', children: [], isHighLighted: false, featureFlag: '', path: '/sobre', externalUrl: '', redirectRouter: false},
-        { label: 'Planos', children: [], isHighLighted: false, featureFlag: '', path: '/sobre', externalUrl: '', redirectRouter: false},
-        { label: 'Parceiros', children: [], isHighLighted: false, featureFlag: '', path: '/sobre', externalUrl: '', redirectRouter: false}
+        { label: 'Início', children: [], isHighLighted: false, featureFlag: '', path: '/inicio', externalUrl: '', redirectRouter: false},
+        { label: 'Indique aí!', children: [], isHighLighted: false, featureFlag: '', path: '/inicio', externalUrl: '', redirectRouter: false},
+        { label: 'Benefícios', children: [], isHighLighted: false, featureFlag: '', path: '/inicio', externalUrl: '', redirectRouter: false},
+        { label: 'Planos', children: [], isHighLighted: false, featureFlag: '', path: '/inicio', externalUrl: '', redirectRouter: false},
+        { label: 'Parceiros', children: [], isHighLighted: false, featureFlag: '', path: '/inicio', externalUrl: '', redirectRouter: false}
 
       ],
       isHighLighted: true,
       featureFlag: '',
-      path: '/sobre',
+      path: '/inicio',
       externalUrl: '',
       redirectRouter: true,
     },
-    { label: 'Sobre', children: [], isHighLighted: true, featureFlag: '', path: '/sobre', externalUrl: '', redirectRouter: false},
-    { label: 'Profissões', children: [], isHighLighted: true, featureFlag: '', path: '/sobre', externalUrl: '', redirectRouter: false},
-    { label: 'Login', children: [], isHighLighted: true, featureFlag: '', path: '/sobre', externalUrl: '', redirectRouter: false}
+    { label: 'Início', children: [], isHighLighted: true, featureFlag: '', path: '/inicio', externalUrl: '', redirectRouter: false},
+    { label: 'Profissões', children: [], isHighLighted: true, featureFlag: '', path: '/inicio', externalUrl: '', redirectRouter: false},
+    { label: 'Login', children: [], isHighLighted: true, featureFlag: '', path: '/como-funciona', externalUrl: '', redirectRouter: false}
   ]
 
   treeControl = new NestedTreeControl<HeaderNode>(node => node.children);

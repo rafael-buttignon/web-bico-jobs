@@ -1,7 +1,7 @@
 <header>
   <mat-toolbar fxLayout="row" fxLayoutAlign="space-between center" class="header-row">
       <div fxLayoutAlign="space-around center" class="img-background-padding-OD">
-          <a [routerLink]="['']" [queryParams]="{ view: 'about'}"><img src="../assets/images/img/logobico.png"
+          <a [routerLink]="['']"><img src="../assets/images/img/logobico.png"
                   class="image-logo" height="68px"></a>
       </div>
       <mat-tab-group animationDuration="1ms" fxHide.lt-sm [attr.fxFlex]="activateFxFlex ? true : null"
@@ -27,7 +27,7 @@
           </mat-tab>
       </mat-tab-group>
       <div fxHide.lt-sm class="img-background-padding-AB">
-          <a [routerLink]="['']" class="image-logo" [queryParams]="{ view: 'about'}"><img src="../assets/images/img/logobicoleft.png"
+          <a [routerLink]="['']" class="image-logo"><img src="../assets/images/img/logobicoleft.png"
             class="image-logo" height="68px"></a>
       </div>
       <button fxHide.gt-xs mat-icon-button (touchstart)="isMobileMenuOpened = !isMobileMenuOpened">
@@ -59,7 +59,7 @@
       </mat-nested-tree-node>
   </mat-tree>
   <div fxLayout="row" fxLayoutAlign="start center">
-      <a [routerLink]="['']" [queryParams]="{ view: 'about'}"><img src="../assets/images/img/logobicoleft.png"
+      <a [routerLink]="['']"><img src="../assets/images/img/logobicoleft.png"
               height="19px" class="second-logo-mobile"></a>
   </div>
 </div>
