@@ -28,6 +28,9 @@ import { LandingpageComponent } from './layout/landingpage/landingpage.component
 import { CardFancyComponent } from './layout/card-fancy/card-fancy.component';
 import { CardFancyCategorysComponent } from './layout/card-fancy-categorys/card-fancy-categorys.component';
 import { BlogComponent } from './layout/blog/blog.component';
+import { ClipboardModule } from 'ngx-clipboard';
+import { FooterComponent } from './layout/footer/footer.component';
+
 
 @NgModule({
   declarations: [
@@ -39,11 +42,13 @@ import { BlogComponent } from './layout/blog/blog.component';
     CardFancyComponent,
     CardFancyCategorysComponent,
     BlogComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
     MaterialModule,
     CommonModule,
+
     AutocompleteLibModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
@@ -101,6 +106,7 @@ import { BlogComponent } from './layout/blog/blog.component';
     MatTreeModule,
     PortalModule,
     ScrollingModule,
+    ClipboardModule,
     ToastrModule.forRoot(),
     NgxMaskModule.forRoot(),
   ],
