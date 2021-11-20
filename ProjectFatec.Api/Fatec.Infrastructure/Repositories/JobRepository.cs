@@ -23,7 +23,6 @@ namespace Fatec.Infrastructure.Repositories
         {
             return await DbSet
                 .Where(x => x.ProviderId != USER_INEXISTENT)
-                .Include(x => x.Provider)
                 .ToListAsync();
         }
     }

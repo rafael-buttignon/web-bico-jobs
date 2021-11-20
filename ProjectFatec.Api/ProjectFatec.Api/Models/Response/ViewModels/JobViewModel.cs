@@ -6,16 +6,15 @@ namespace ProjectFatec.WebApi.Models.Response.ViewModels
 {
     public class JobViewModel
     {
-        public virtual long JobCategoryId { get; set; }
         public string Description { get; set; }
-        public UserViewModel Provider { get; set; }
 
         [JsonConverterAttribute(typeof(TimeSpanConverter))]
         public TimeSpan StartTime { get; set; }
 
         [JsonConverterAttribute(typeof(TimeSpanConverter))]
-        public TimeSpan EndTime {  get; set; }
+        public TimeSpan EndTime { get; set; }
 
         public double PriceTime { get; set; }
+
     }
 }
