@@ -30,6 +30,7 @@ import { CardFancyCategorysComponent } from './layout/card-fancy-categorys/card-
 import { BlogComponent } from './layout/blog/blog.component';
 import { ClipboardModule } from 'ngx-clipboard';
 import { FooterComponent } from './layout/footer/footer.component';
+import { LoginComponent } from './layout/login/login.component';
 
 
 @NgModule({
@@ -43,6 +44,7 @@ import { FooterComponent } from './layout/footer/footer.component';
     CardFancyCategorysComponent,
     BlogComponent,
     FooterComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,

@@ -36,7 +36,7 @@ export class HeaderComponent implements OnInit {
     },
     { label: 'Início', children: [], isHighLighted: true, featureFlag: '', path: '/inicio', externalUrl: '', redirectRouter: false},
     { label: 'Profissões', children: [], isHighLighted: true, featureFlag: '', path: '/inicio', externalUrl: '', redirectRouter: false},
-    { label: 'Login', children: [], isHighLighted: true, featureFlag: '', path: '/como-funciona', externalUrl: '', redirectRouter: false}
+    { label: 'Login', children: [], isHighLighted: true, featureFlag: '', path: '/login', externalUrl: '', redirectRouter: false}
   ]
 
   treeControl = new NestedTreeControl<HeaderNode>(node => node.children);

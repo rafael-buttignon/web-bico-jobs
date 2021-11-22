@@ -3,6 +3,7 @@ import { RouterModule, Routes } from "@angular/router";
 import { AboutComponent } from "../about/about.component";
 import { HowToWorkComponent } from "../how-to-work/how-to-work.component";
 import { LandingpageComponent } from "../landingpage/landingpage.component";
+import { LoginComponent } from "../login/login.component";
 
 const routes: Routes = [
     {
@@ -17,6 +18,10 @@ const routes: Routes = [
     {
       path: 'como-funciona',
       component: HowToWorkComponent
+    },
+    {
+      path: 'login',
+      component: LoginComponent
     },
     {
     path: '**',
