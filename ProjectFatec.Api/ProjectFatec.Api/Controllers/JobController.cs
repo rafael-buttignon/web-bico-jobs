@@ -24,6 +24,21 @@ namespace ProjectFatec.WebApi.Controllers
             _jobService = jobService ?? throw new ArgumentNullException(nameof(jobService));
         }
 
+        [HttpPost]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        public async Task<IActionResult> CreateJob([FromBody] JobRequest request)
+        {
+            var job = _mapper.Map<Job>(request);
+
+            var response = await _jobService.CreateJob(job);
+
+            if(!response)
+                return BadRequest();
+                
+            return Ok();
+        }
+
         [HttpGet]
         [ProducesResponseType(typeof(JobViewModel), (int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
@@ -37,18 +52,31 @@ namespace ProjectFatec.WebApi.Controllers
             return Ok(jobs);
         }
 
-        [HttpPost]
+        [HttpGet]
+        [ProducesResponseType(typeof(JobDetailsViewModel), (int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [Route("{id}")]
+        public async Task<IActionResult> GetJobById(long id)
+        {
+            var job = _mapper.Map<JobDetailsViewModel>(await _jobService.GetJobById(id));
+
+            if (job == null)
+                return BadRequest();
+
+            return Ok(job);
+        }
+
+        [HttpPut]
         [ProducesResponseType((int)HttpStatusCode.OK)]
         [ProducesResponseType((int)HttpStatusCode.BadRequest)]
-        public async Task<IActionResult> CreateJob([FromBody] JobRequest request)
+        [Route("{id}/activation/{activationId}")]
+        public async Task<IActionResult> ChangeJobActivation(long id, int activationId)
         {
-            var job = _mapper.Map<Job>(request);
+            var job = await _jobService.ChangeActivation(id, activationId);
 
-            var response = await _jobService.CreateJob(job);
-
-            if(!response)
+            if (!job)
                 return BadRequest();
-                
+
             return Ok();
         }
     }

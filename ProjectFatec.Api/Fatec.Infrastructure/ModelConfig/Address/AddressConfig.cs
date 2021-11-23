@@ -32,11 +32,6 @@ namespace Fatec.Infrastructure.ModelConfig.Address
             builder.Property(x => x.Street)
                 .IsRequired()
                 .HasMaxLength(100);
-
-            builder.HasOne(x => x.User)
-                .WithOne(x => x.Address)
-                .HasForeignKey<AddressEntity>(x => x.UserId)
-                .OnDelete(DeleteBehavior.ClientSetNull);
         }
     }
 }

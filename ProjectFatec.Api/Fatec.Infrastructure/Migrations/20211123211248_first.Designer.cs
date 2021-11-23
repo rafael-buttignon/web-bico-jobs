@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Fatec.Infrastructure.Migrations
 {
     [DbContext(typeof(BicoContext))]
-    [Migration("20211102194310_FirstMigration")]
-    partial class FirstMigration
+    [Migration("20211123211248_first")]
+    partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -206,6 +206,9 @@ namespace Fatec.Infrastructure.Migrations
 
                     b.Property<TimeSpan>("EndTime")
                         .HasColumnType("time");
+
+                    b.Property<int>("IsActive")
+                        .HasColumnType("int");
 
                     b.Property<long>("JobCategoryId")
                         .HasColumnType("bigint");
@@ -468,6 +471,7 @@ namespace Fatec.Infrastructure.Migrations
                     b.HasOne("Fatec.Domain.Entities.User.User", "User")
                         .WithOne("Address")
                         .HasForeignKey("Fatec.Domain.Entities.Address.Address", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("User");

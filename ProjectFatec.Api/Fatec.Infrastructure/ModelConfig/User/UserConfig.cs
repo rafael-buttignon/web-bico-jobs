@@ -2,6 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using UserEntity = Fatec.Domain.Entities.User.User;
 using AddressEntity = Fatec.Domain.Entities.Address.Address;
+using System.Reflection.Emit;
 
 namespace Fatec.Infrastructure.ModelConfig.User
 {
@@ -38,6 +39,11 @@ namespace Fatec.Infrastructure.ModelConfig.User
                 .WithOne(x => x.ContractingUser)
                 .HasForeignKey(x => x.ContractingUserId)
                 .OnDelete(DeleteBehavior.ClientSetNull);
+
+            builder.HasOne(x => x.Address)
+                .WithOne(x => x.User)
+                .HasForeignKey<AddressEntity>(x => x.UserId)
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

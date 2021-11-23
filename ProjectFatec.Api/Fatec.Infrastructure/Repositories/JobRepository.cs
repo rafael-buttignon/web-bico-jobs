@@ -25,5 +25,13 @@ namespace Fatec.Infrastructure.Repositories
                 .Where(x => x.ProviderId != USER_INEXISTENT)
                 .ToListAsync();
         }
+
+        public override async Task<Job> FindById(long id) 
+        {
+            return await DbSet
+                .Where(x => x.Id == id)
+                .Include(x => x.Provider)
+                .FirstOrDefaultAsync();
+        }
     }
 }

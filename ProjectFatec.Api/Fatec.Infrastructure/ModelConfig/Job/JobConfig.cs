@@ -25,6 +25,9 @@ namespace Fatec.Infrastructure.ModelConfig.Job
             builder.Property(x => x.PriceTime)
                 .IsRequired();
 
+            builder.Property(x => x.IsActive)
+                .IsRequired();
+
             builder.HasOne(x => x.JobCategory)
                 .WithMany(x => x.Jobs)
                 .HasForeignKey(x => x.JobCategoryId)

@@ -13,6 +13,7 @@ namespace ProjectFatec.WebApi.Mapper.Profiles
         {
             CreateMap<User, UserViewModel>();
             CreateMap<Job, JobViewModel>();
+            CreateMap<Job, JobDetailsViewModel>();
             CreateMap<Address, AddressViewModel>();
             CreateMap<Request, RequestViewModel>();
             CreateMap<Request, RequestDetailsViewModel>();

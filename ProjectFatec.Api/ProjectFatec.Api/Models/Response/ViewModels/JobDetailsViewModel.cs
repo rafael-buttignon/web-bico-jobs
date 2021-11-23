@@ -5,5 +5,6 @@
         public virtual long JobCategoryId { get; set; }
 
         public UserViewModel Provider { get; set; }
+        public int IsActive { get; set; }
     }
 }
