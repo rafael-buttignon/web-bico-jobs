@@ -8,5 +8,7 @@ namespace Fatec.Domain.Services.Interfaces.Job
     {
         public Task<bool> CreateJob(JobEntity request);
         public Task<IEnumerable<JobEntity>> GetJobs();
+        public Task<JobEntity> GetJobById(long jobId);
+        public Task<bool> ChangeActivation(long id, int activationId);
     }
 }

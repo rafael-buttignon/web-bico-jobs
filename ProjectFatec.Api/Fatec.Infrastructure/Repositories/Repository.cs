@@ -53,6 +53,10 @@ namespace Fatec.Infrastructure.Repositories
         {
             return await DbSet.ToListAsync();
         }
+        public void Delete(TEntity obj)
+        {
+            DbSet.Remove(obj);
+        }
 
         public virtual IQueryable<TEntity> NoTracking() => DbSet.AsNoTracking();
     }

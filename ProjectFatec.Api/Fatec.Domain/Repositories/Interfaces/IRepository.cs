@@ -15,5 +15,6 @@ namespace Fatec.Domain.Repositories.Interfaces
         Task<IEnumerable<TEntity>> GetAllAsync();
         Task<IEnumerable<TEntity>> Find(Expression<Func<TEntity, bool>> predicate);
         void AddRange(IEnumerable<TEntity> entities);
+        void Delete(TEntity obj);
     }
 }

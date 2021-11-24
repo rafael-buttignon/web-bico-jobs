@@ -67,5 +67,19 @@ namespace ProjectFatec.WebApi.Controllers
 
             return Ok();
         }
+
+        [HttpDelete]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [Route("{id}")]
+        public async Task<IActionResult> DeleteUser([FromRoute] long id)
+        {
+            var response = await _userService.DeleteUser(id);
+
+            if (!response)
+                return BadRequest();
+
+            return Ok();
+        }
     }
 }

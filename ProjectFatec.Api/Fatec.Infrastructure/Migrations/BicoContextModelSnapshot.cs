@@ -205,6 +205,9 @@ namespace Fatec.Infrastructure.Migrations
                     b.Property<TimeSpan>("EndTime")
                         .HasColumnType("time");
 
+                    b.Property<int>("IsActive")
+                        .HasColumnType("int");
+
                     b.Property<long>("JobCategoryId")
                         .HasColumnType("bigint");
 
@@ -466,6 +469,7 @@ namespace Fatec.Infrastructure.Migrations
                     b.HasOne("Fatec.Domain.Entities.User.User", "User")
                         .WithOne("Address")
                         .HasForeignKey("Fatec.Domain.Entities.Address.Address", "UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("User");

@@ -50,5 +50,16 @@ namespace Fatec.Domain.Services.User
             return await _unitOfWork.SaveChangesAsync();
         }
 
+        public async Task<bool> DeleteUser(long id)
+        {
+            var user = await _userRepository.FindById(id);
+            
+            if (user == null)
+                throw new UserException("USER DOESN'T EXIST!");
+
+            _userRepository.Delete(user);
+
+            return await _unitOfWork.SaveChangesAsync();
+        }
     }
 }
