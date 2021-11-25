@@ -9,9 +9,6 @@ namespace Fatec.Infrastructure.ModelConfig.Request
     {
         public void Configure(EntityTypeBuilder<RequestEntity> builder)
         {
-            //builder.Property(x => x.AssignedTo)
-            //    .IsRequired();
-
             builder.Property(x => x.ApprovalDate)
                 .HasColumnType("datetime");
 
@@ -27,6 +24,13 @@ namespace Fatec.Infrastructure.ModelConfig.Request
 
             builder.Property(x => x.EndTime)
                 .IsRequired();
+
+            builder.Property(x => x.StartDate)
+                .HasColumnType("datetime")
+                .IsRequired();
+
+            builder.Property(x => x.EndDate)
+                .HasColumnType("datetime");
 
             builder.HasOne(x => x.ContractingUser)
                 .WithMany(x => x.Requests)

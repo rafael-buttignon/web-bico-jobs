@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Fatec.Infrastructure.Migrations
 {
     [DbContext(typeof(BicoContext))]
-    [Migration("20211123211248_first")]
+    [Migration("20211125172213_first")]
     partial class first
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -105,8 +105,8 @@ namespace Fatec.Infrastructure.Migrations
                     b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime");
 
-                    b.Property<DateTime>("EndTime")
-                        .HasColumnType("datetime2");
+                    b.Property<TimeSpan>("EndTime")
+                        .HasColumnType("time");
 
                     b.Property<int?>("Evaluation")
                         .HasColumnType("int");
@@ -123,8 +123,8 @@ namespace Fatec.Infrastructure.Migrations
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime");
 
-                    b.Property<DateTime>("StartTime")
-                        .HasColumnType("datetime2");
+                    b.Property<TimeSpan>("StartTime")
+                        .HasColumnType("time");
 
                     b.Property<int>("TotalDays")
                         .HasColumnType("int");
@@ -351,6 +351,9 @@ namespace Fatec.Infrastructure.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<DateTime?>("EndDate")
+                        .HasColumnType("datetime");
+
                     b.Property<TimeSpan>("EndTime")
                         .HasColumnType("time");
 
@@ -362,6 +365,9 @@ namespace Fatec.Infrastructure.Migrations
 
                     b.Property<long>("RequestStatusId")
                         .HasColumnType("bigint");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime");
 
                     b.Property<TimeSpan>("StartTime")
                         .HasColumnType("time");

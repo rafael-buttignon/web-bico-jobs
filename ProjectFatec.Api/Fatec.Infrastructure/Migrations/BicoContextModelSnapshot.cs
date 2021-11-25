@@ -103,8 +103,8 @@ namespace Fatec.Infrastructure.Migrations
                     b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime");
 
-                    b.Property<DateTime>("EndTime")
-                        .HasColumnType("datetime2");
+                    b.Property<TimeSpan>("EndTime")
+                        .HasColumnType("time");
 
                     b.Property<int?>("Evaluation")
                         .HasColumnType("int");
@@ -121,8 +121,8 @@ namespace Fatec.Infrastructure.Migrations
                     b.Property<DateTime>("StartDate")
                         .HasColumnType("datetime");
 
-                    b.Property<DateTime>("StartTime")
-                        .HasColumnType("datetime2");
+                    b.Property<TimeSpan>("StartTime")
+                        .HasColumnType("time");
 
                     b.Property<int>("TotalDays")
                         .HasColumnType("int");
@@ -349,6 +349,9 @@ namespace Fatec.Infrastructure.Migrations
                         .HasMaxLength(100)
                         .HasColumnType("nvarchar(100)");
 
+                    b.Property<DateTime?>("EndDate")
+                        .HasColumnType("datetime");
+
                     b.Property<TimeSpan>("EndTime")
                         .HasColumnType("time");
 
@@ -360,6 +363,9 @@ namespace Fatec.Infrastructure.Migrations
 
                     b.Property<long>("RequestStatusId")
                         .HasColumnType("bigint");
+
+                    b.Property<DateTime>("StartDate")
+                        .HasColumnType("datetime");
 
                     b.Property<TimeSpan>("StartTime")
                         .HasColumnType("time");

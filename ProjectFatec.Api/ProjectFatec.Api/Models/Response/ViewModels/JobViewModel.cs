@@ -6,6 +6,7 @@ namespace ProjectFatec.WebApi.Models.Response.ViewModels
 {
     public class JobViewModel
     {
+        public long Id { get; set; }
         public string Description { get; set; }
 
         [JsonConverterAttribute(typeof(TimeSpanConverter))]

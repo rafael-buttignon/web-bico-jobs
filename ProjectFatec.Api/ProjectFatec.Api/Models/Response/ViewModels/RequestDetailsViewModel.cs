@@ -11,7 +11,8 @@ namespace ProjectFatec.WebApi.Models.Response.ViewModels
 
         [JsonConverterAttribute(typeof(TimeSpanConverter))]
         public TimeSpan EndTime { get; set; }
-
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
         public DateTime ApprovalDate { get; set; }
         public DateTime RejectionDate { get; set; }
         public double PriceTime {  get; set; }

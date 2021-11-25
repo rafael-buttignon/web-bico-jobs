@@ -9,5 +9,6 @@ namespace Fatec.Domain.Services.Interfaces.Request
         public Task<bool> CreateRequest(RequestEntity request);
         public Task<IEnumerable<RequestEntity>> GetRequests();
         public Task<RequestEntity> GetById(long id);
+        public Task<bool> Approval(long id, bool action);
     }
 }
