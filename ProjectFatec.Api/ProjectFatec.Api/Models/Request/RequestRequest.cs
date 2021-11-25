@@ -16,5 +16,7 @@ namespace ProjectFatec.WebApi.Models.Request
 
         [JsonConverterAttribute(typeof(TimeSpanConverter))]
         public TimeSpan EndTime { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
     }
 }

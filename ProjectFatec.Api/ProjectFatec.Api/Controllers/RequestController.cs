@@ -65,5 +65,19 @@ namespace ProjectFatec.WebApi.Controllers
 
             return Ok(request);
         }
+
+        [HttpPut]
+        [ProducesResponseType((int)HttpStatusCode.OK)]
+        [ProducesResponseType((int)HttpStatusCode.BadRequest)]
+        [Route("{id}")]
+        public async Task<IActionResult> Approval(long id, bool action)
+        {
+            var request = await _requestService.Approval(id, action);
+
+            if (!request)
+                return BadRequest();
+
+            return Ok();
+        }
     }
 }

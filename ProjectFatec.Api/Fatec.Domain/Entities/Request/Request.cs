@@ -17,6 +17,8 @@ namespace Fatec.Domain.Entities.Request
         public virtual long JobId { get; set; }
         public TimeSpan StartTime { get; set; }
         public TimeSpan EndTime { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime? EndDate { get; set; }
         public RequestStatusEntity RequestStatus { get; set; }
         public virtual long RequestStatusId { get; set; }
         public ContractEntity Contract { get; set; }
