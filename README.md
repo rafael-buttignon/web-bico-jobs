@@ -1,7 +1,5 @@
 # :tada: Bico Search Jobs :tada:
 
-Converte celsius em fahrenheit e vice versa.
-
 ## :computer: Pré-requisitos
 
 - [Angular](https://angular.io/)
