@@ -1,20 +1,42 @@
-# Introduction 
-TODO: Give a short introduction of your project. Let this section explain the objectives or the motivation behind this project. 
+# :tada: Bico Search Jobs :tada:
 
-# Getting Started
-TODO: Guide users through getting your code up and running on their own system. In this section you can talk about:
-1.	Installation process
-2.	Software dependencies
-3.	Latest releases
-4.	API references
+Converte celsius em fahrenheit e vice versa.
 
-# Build and Test
-TODO: Describe and show how to build your code and run the tests. 
+## :computer: Pré-requisitos
 
-# Contribute
-TODO: Explain how other users and developers can contribute to make your code better. 
+- [Angular](https://angular.io/)
 
-If you want to learn more about creating good readme files then refer the following [guidelines](https://docs.microsoft.com/en-us/azure/devops/repos/git/create-a-readme?view=azure-devops). You can also seek inspiration from the below readme files:
-- [ASP.NET Core](https://github.com/aspnet/Home)
-- [Visual Studio Code](https://github.com/Microsoft/vscode)
-- [Chakra Core](https://github.com/Microsoft/ChakraCore)
+## :wrench: Instalação
+
+Clone o projeto:
+
+```bash
+git clone https://github.com/rafael-buttignon/web-bico-jobs.git
+```
+
+Entre na pasta:
+
+```bash
+cd ProjectFatec\ProjectFatec.Api\ProjectFatec.Api\ClientApp
+```
+
+## :rocket: Execução
+
+Instale as dependências:
+
+```bash
+npm install
+```
+
+Inicie o aplicativo:
+
+```bash
+ng serve
+```
+
+Acesse o aplicativo em [http://localhost:4000](http://localhost:4000).
+
+
+
+## :memo: Licença
+Esse projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
