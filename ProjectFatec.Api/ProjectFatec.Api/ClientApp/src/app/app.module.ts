@@ -4,10 +4,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { BreakPointRegistry, FlexLayoutModule, FlexStyleBuilder, LayoutAlignStyleBuilder, LayoutStyleBuilder, PrintHook, StylesheetMap, StyleUtils } from '@angular/flex-layout';
 import { MatAutocompleteModule, MatBadgeModule, MatBottomSheetModule, MatButtonModule, MatButtonToggleModule, MatCardModule, MatCheckboxModule, MatChipsModule, MatDatepickerModule, MatDialogModule, MatDividerModule, MatExpansionModule, MatGridListModule, MatIconModule, MatInputModule, MatListModule, MatMenuModule, MatNativeDateModule, MatPaginatorModule, MatProgressBarModule, MatProgressSpinnerModule, MatRadioModule, MatRippleModule, MatSelectModule, MatSidenavModule, MatSliderModule, MatSlideToggleModule, MatSnackBarModule, MatSortModule, MatStepperModule, MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule, MatTreeModule } from '@angular/material';
-import { ToastrModule } from 'ngx-toastr';
 import { NgxMaskModule } from 'ngx-mask';
 import { CommonModule, ViewportScroller } from '@angular/common';
 import { MaterialModule } from './modules/material-module/material.module';
@@ -31,6 +30,12 @@ import { BlogComponent } from './layout/blog/blog.component';
 import { ClipboardModule } from 'ngx-clipboard';
 import { FooterComponent } from './layout/footer/footer.component';
 import { LoginComponent } from './layout/login/login.component';
+import { RegisterComponent } from './layout/register/register.component';
+import { HomeComponent } from './layout/home/home.component';
+import { JwtInterceptor } from './core/helpers/jwt.interceptor';
+import { ErrorInterceptor } from './core/helpers/error.interceptor';
+import { fakeBackendProvider } from './core/helpers/fake-backend';
+import { ToastrModule } from 'ngx-toastr';
 
 
 @NgModule({
@@ -45,12 +50,13 @@ import { LoginComponent } from './layout/login/login.component';
     BlogComponent,
     FooterComponent,
     LoginComponent,
+    RegisterComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,
     MaterialModule,
     CommonModule,
-
     AutocompleteLibModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
@@ -109,7 +115,10 @@ import { LoginComponent } from './layout/login/login.component';
     PortalModule,
     ScrollingModule,
     ClipboardModule,
-    ToastrModule.forRoot(),
+    ToastrModule.forRoot({
+      timeOut: 1000,
+      positionClass: 'toast-bottom-right'
+    }),
     NgxMaskModule.forRoot(),
   ],
   providers: [
@@ -120,7 +129,12 @@ import { LoginComponent } from './layout/login/login.component';
     LayoutAlignStyleBuilder,
     LayoutStyleBuilder,
     FlexStyleBuilder,
-    BreakPointRegistry
+    BreakPointRegistry,
+    { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },
+
+    // provider used to create fake backend
+    fakeBackendProvider
   ],
   exports: [
     AppComponent,

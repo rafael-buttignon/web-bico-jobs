@@ -1,7 +1,7 @@
 import { MatTreeNestedDataSource } from '@angular/material/tree';
 import { NestedTreeControl } from '@angular/cdk/tree';
 import { Component, OnInit } from '@angular/core';
-import { NavigationEnd, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { Location, LocationStrategy, PathLocationStrategy } from '@angular/common';
 
 @Component({
@@ -36,7 +36,8 @@ export class HeaderComponent implements OnInit {
     },
     { label: 'Início', children: [], isHighLighted: true, featureFlag: '', path: '/inicio', externalUrl: '', redirectRouter: false},
     { label: 'Profissões', children: [], isHighLighted: true, featureFlag: '', path: '/inicio', externalUrl: '', redirectRouter: false},
-    { label: 'Login', children: [], isHighLighted: true, featureFlag: '', path: '/login', externalUrl: '', redirectRouter: false}
+    { label: 'Login', children: [], isHighLighted: true, featureFlag: '', path: '/login', externalUrl: '', redirectRouter: false},
+    { label: 'Perfil', children: [], isHighLighted: true, featureFlag: '', path: '/home', externalUrl: '', redirectRouter: false}
   ]
 
   treeControl = new NestedTreeControl<HeaderNode>(node => node.children);
@@ -53,15 +54,6 @@ export class HeaderComponent implements OnInit {
   changeRoute() {
     this.selectedIndex = (+this.location.path(true).substr(1) - 1) || 0;
     this.router.events.subscribe((event: any) => {
-      if (event instanceof NavigationEnd) {
-        if (event.url.includes('/termos-uso') ||
-          event.url.includes('/privacidade') ||
-          event.url.includes('/regulamentos') ||
-          event.url.includes('/cancelamento')) {
-          return;
-        }
-        this.selectedIndex = this.tree.findIndex(x => event.url.includes(x.path));
-      }
     });
   }
 
